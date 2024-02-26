@@ -3,12 +3,11 @@ from pydantic import Field
 from resource_proxy_manager.config import CommonSettings
 
 
-class StorageSettings(CommonSettings):
+class S3StorageSettings(CommonSettings):
     ##################
-    # storage 관련된 설정
+    # S3 storage 관련된 설정
     ##################
-    storage_endpoint_url: str = Field(description="object storage의 endpoint url")
-    storage_access_key: str = Field(description="object storage의 access key")
-    storage_secret_key: str = Field(description="object storage의 secret key")
-    storage_raw_data_bucket_name: str = Field(description="원 데이터가 저장되어 있는 bucket name")
-    storage_prep_data_bucket_name: str = Field(description="전처리된 데이터가 저장되어 있는 bucket name")
+    S3_STORAGE_ENDPOINT_URL: str = Field(description="object storage의 endpoint url")
+    S3_STORAGE_ACCESS_KEY: str = Field(description="object storage의 access key")
+    S3_STORAGE_SECRET_KEY: str = Field(description="object storage의 secret key")
+    S3_STORAGE_BUCKET_NAME: str = Field(description="object storage의 bucket name")
