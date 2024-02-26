@@ -7,10 +7,10 @@ from resource_proxy_manager.storage.s3 import S3ObjectStorage
 @pytest.fixture
 def storage():
     return S3ObjectStorage(
-        endpoint_url="http://localhost:9000",
-        access_key="minio-access-key",
-        secret_key="minio-secret-key",
-        bucket_name="test-bucket",
+        s3_storage_endpoint_url="http://localhost:9000",
+        s3_storage_access_key="minio-access-key",
+        s3_storage_secret_key="minio-secret-key",
+        s3_storage_bucket_name="test-bucket",
     )
 
 

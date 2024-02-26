@@ -20,7 +20,7 @@ class K8SJobSpawner:
 
     def __init__(self, namespace: str = 'default'):
         """
-        :param namespace: 생성할 쿠버네티스 클러스터의 namespace
+        :param namespace: 생성할 쿠버네티스 클러스터의 namespace (related to K8SSpawnerSettings.K8S_SPAWNER_NAMESPACE
         """
         self.namespace = namespace
         self._load_configuration()

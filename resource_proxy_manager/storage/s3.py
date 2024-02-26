@@ -16,26 +16,26 @@ class S3ObjectStorage(ObjectStorageInterface):
 
     def __init__(
             self,
-            endpoint_url: str,
-            access_key: str,
-            secret_key: str,
-            bucket_name: str
+            s3_storage_endpoint_url: str,
+            s3_storage_access_key: str,
+            s3_storage_secret_key: str,
+            s3_storage_bucket_name: str
     ):
         """ object storage에 업로드 / 다운로드 하는 클래스
 
-        :param endpoint_url:
-        :param access_key:
-        :param secret_key:
-        :param bucket_name:
+        :param s3_storage_endpoint_url: related to S3StorageSettings.S3_STORAGE_ENDPOINT_URL
+        :param s3_storage_access_key: related to S3StorageSettings.S3_STORAGE_ACCESS_KEY
+        :param s3_storage_secret_key: related to S3StorageSettings.S3_STORAGE_SECRET_KEY
+        :param s3_storage_bucket_name: related to S3StorageSettings.S3_STORAGE_BUCKET_NAME
         """
-        self.endpoint_url = endpoint_url
-        self.access_key = access_key
-        self.secret_key = secret_key
-        self.bucket_name = bucket_name
+        self.endpoint_url = s3_storage_endpoint_url
+        self.access_key = s3_storage_access_key
+        self.secret_key = s3_storage_secret_key
+        self.bucket_name = s3_storage_bucket_name
         self.s3 = boto3.resource('s3',
-                                 endpoint_url=endpoint_url,
-                                 aws_access_key_id=access_key,
-                                 aws_secret_access_key=secret_key)
+                                 endpoint_url=s3_storage_endpoint_url,
+                                 aws_access_key_id=s3_storage_access_key,
+                                 aws_secret_access_key=s3_storage_secret_key)
         self.bucket = self.s3.Bucket(self.bucket_name)
         self._create_bucket_if_not_exists()
 
